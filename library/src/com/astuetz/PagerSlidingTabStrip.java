@@ -106,6 +106,12 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         this(context, attrs, 0);
     }
 
+    /**
+     * 构造函数，主要是从xml布局文件的配置中初始化控件样式*
+     * @param context 上下文
+     * @param attrs attrs
+     * @param defStyle 默认样式
+     */
     public PagerSlidingTabStrip(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
@@ -170,6 +176,10 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         }
     }
 
+    /**
+     * 给控件设置与之配合使用的ViewPager*
+     * @param pager
+     */
     public void setViewPager(ViewPager pager) {
         this.pager = pager;
 
@@ -224,6 +234,11 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     }
 
+    /**
+     * 添加一个仅包含文字的Tab*
+     * @param position 位置
+     * @param title Tab文字标题
+     */
     private void addTextTab(final int position, String title) {
 
         TextView tab = new TextView(getContext());
@@ -234,6 +249,11 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         addTab(position, tab);
     }
 
+    /**
+     * 添加一个仅包含Icon的Tab*
+     * @param position 位置
+     * @param resId Icon图标的resId
+     */
     private void addIconTab(final int position, int resId) {
 
         ImageButton tab = new ImageButton(getContext());
@@ -243,6 +263,11 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     }
 
+    /**
+     * 添加一个自定义View的Tab
+     * @param position 位置
+     * @param tab Tab中显示的view
+     */
     private void addTab(final int position, View tab) {
         tab.setFocusable(true);
         tab.setOnClickListener(new OnClickListener() {
@@ -285,6 +310,11 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     }
 
+    /**
+     * 滚动到指定的子tab*
+     * @param position 位置
+     * @param offset 位移、偏移
+     */
     private void scrollToChild(int position, int offset) {
 
         if (tabCount == 0) {
@@ -350,6 +380,9 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         }
     }
 
+    /**
+     * ViewPager页面发生变化时候的Listener
+     */
     private class PageListener implements OnPageChangeListener {
 
         @Override
