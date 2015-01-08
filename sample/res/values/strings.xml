@@ -3,5 +3,8 @@
 
     <string name="app_name">PagerSlidingTabStrip</string>
     <string name="action_contact">Contact</string>
+    <string name="title_activity_tabs_in_bottom">TabsInBottomActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

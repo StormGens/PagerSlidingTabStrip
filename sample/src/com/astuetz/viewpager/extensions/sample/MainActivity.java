@@ -82,6 +82,10 @@ public class MainActivity extends FragmentActivity {
                 QuickContactFragment dialog = new QuickContactFragment();
                 dialog.show(getSupportFragmentManager(), "QuickContactFragment");
                 return true;
+            case R.id.action_custom_view:
+                CustomViewFragment dialog2=CustomViewFragment.newInstance();
+                dialog2.show(getSupportFragmentManager(),"CustomViewFragment");
+                return true;
 
         }
 

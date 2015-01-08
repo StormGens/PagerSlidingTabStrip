@@ -5,5 +5,11 @@
         android:icon="@drawable/ic_action_user"
         android:showAsAction="ifRoom"
         android:title="@string/action_contact"/>
+    <item
+        android:id="@+id/action_custom_view"
+        android:icon="@drawable/ic_action_user"
+        android:showAsAction="ifRoom"
+        android:title="CustomView"
+        />
 
 </menu>
