@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+    >
+
+    <ImageView
+        android:id="@+id/complex_tab_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_popup_reminder"
+        />
+    <TextView
+        android:id="@+id/complex_tab_badge_tv"
+        android:layout_toRightOf="@id/complex_tab_iv"
+        android:text="11"
+        android:background="#ffff4444"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/complex_tab_title_tv"
+        android:layout_below="@id/complex_tab_iv"
+        android:text="闹钟"
+        android:textSize="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    
+</RelativeLayout>

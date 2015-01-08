@@ -48,6 +48,10 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     public interface IconTabProvider {
         public int getPageIconResId(int position);
     }
+    
+    public interface ComplexTabProvider {
+        public ComplexSlidingTabParams getPageTabParams(int position);
+    }
 
     // @formatter:off
     private static final int[] ATTRS = new int[]{
@@ -203,8 +207,9 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         tabCount = pager.getAdapter().getCount();
 
         for (int i = 0; i < tabCount; i++) {
-
-            if (pager.getAdapter() instanceof IconTabProvider) {
+            if (pager.getAdapter() instanceof ComplexTabProvider){
+                addComplexTab(i, ((ComplexTabProvider) pager.getAdapter()).getPageTabParams(i));
+            }else if (pager.getAdapter() instanceof IconTabProvider) {
                 addIconTab(i, ((IconTabProvider) pager.getAdapter()).getPageIconResId(i));
             } else {
                 addTextTab(i, pager.getAdapter().getPageTitle(i).toString());
@@ -261,6 +266,14 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
         addTab(position, tab);
 
+    }
+    
+    private void addComplexTab(final int position,ComplexSlidingTabParams params){
+        ComplexTabView tabView=new ComplexTabView(getContext(),params);
+        addTab(position,tabView);
+        if (position==currentPosition){
+            tabView.switchToChecked();
+        }
     }
 
     /**
@@ -416,6 +429,18 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             if (delegatePageListener != null) {
                 delegatePageListener.onPageSelected(position);
             }
+            for (int i = 0; i < tabCount; i++) {
+                View v = tabsContainer.getChildAt(i);
+                if (v instanceof TwoStateTab){
+                    TwoStateTab complexTabView= (TwoStateTab) v;
+                    if (i==position){
+                        complexTabView.switchToChecked();
+                    }else{
+                        complexTabView.switchToUnChecked();
+                    }
+                }
+            }
+            
         }
 
     }
