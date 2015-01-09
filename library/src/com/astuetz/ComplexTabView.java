@@ -15,7 +15,6 @@ import com.astuetz.pagerslidingtabstrip.R;
 public class ComplexTabView extends FrameLayout implements TwoStateTab {
     private View rootView;
     private TextView titleTv;
-    private TextView badgeTv;
     private ImageView imageView;
     
     private ComplexSlidingTabParams mParams;
@@ -28,7 +27,10 @@ public class ComplexTabView extends FrameLayout implements TwoStateTab {
     }
 
     private void initData() {
-        badgeTv.setText(mParams.getBadgeText());
+        BadgeView badge=new BadgeView(getContext());
+        badge.setTargetView(rootView);
+        
+        badge.setText(mParams.getBadgeText());
         imageView.setImageResource(mParams.getResId());
         titleTv.setText(mParams.getTitle());
     }
@@ -36,15 +38,17 @@ public class ComplexTabView extends FrameLayout implements TwoStateTab {
     private void initView(){
         rootView=LayoutInflater.from(getContext()).inflate(R.layout.custom_tab_view,null);
         titleTv= (TextView) rootView.findViewById(R.id.complex_tab_title_tv);
-        badgeTv= (TextView) rootView.findViewById(R.id.complex_tab_badge_tv);
         imageView= (ImageView) rootView.findViewById(R.id.complex_tab_iv);
         addView(rootView);
     }
 
     @Override
     public void switchToChecked() {
+        if (mParams.getTitleColorChecked()!=0){
+            titleTv.setTextColor(mParams.getTitleColorChecked());
+        }
         imageView.setImageResource(mParams.getCheckedResId());
-        titleTv.setTextColor(mParams.getTitleColorChecked());
+
     }
 
     @Override

@@ -131,7 +131,7 @@ public class TabsInBottomActivity extends Activity {
             ComplexSlidingTabParams params=new ComplexSlidingTabParams();
             params.setShowTextTitle(true);
             params.setTitle(TITLES[position]);
-            params.setTitleColorChecked(Color.RED);
+            params.setTitleColorChecked(getResources().getColor(R.color.textColorBlue));
             params.setTitleColorNormal(Color.BLACK);
             switch (position){
                 case 0:
@@ -140,18 +140,18 @@ public class TabsInBottomActivity extends Activity {
                     params.setCheckedResId(R.drawable.tab_icon_property_select);
                     break;
                 case 1:
-                    params.setBadgeText("22");
+                    params.setBadgeText(""+tagBadge2);
                     params.setResId(R.drawable.tab_icon_home);
                     params.setCheckedResId(R.drawable.tab_icon_home_select);
                     break;
                 case 2:
-                    params.setBadgeText("33");
+                    params.setBadgeText(""+tagBadge3);
                     params.setResId(R.drawable.tab_icon_daikan);
                     params.setCheckedResId(R.drawable.tab_icon_daikan_select);
                     params.setShowTextTitle(true);
                     break;
                 case 3:
-                    params.setBadgeText(tagBadge4+"");
+                    params.setBadgeText("");
                     params.setResId(R.drawable.tab_icon_client);
                     params.setCheckedResId(R.drawable.tab_icon_client_select);
                     break;
